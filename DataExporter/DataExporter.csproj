@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Quentin PARRA (Based of Guillaume Lacasa's work)</Authors>
+    <Company>Key4Events</Company>
+    <Description>Library to help creating XLSX documents with Open XML (Based of Guillaume Lacasa's work and modified by Quentin PARRA)</Description>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key4events.pfx</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>K4.DataExporter</PackageId>
+    <Product>K4.DataExporter</Product>
+    <Version>1.0.7</Version>
+    <PackageReleaseNotes>- Fixed more issues with DataSet export</PackageReleaseNotes>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.14.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>
