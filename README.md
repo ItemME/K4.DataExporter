@@ -60,7 +60,7 @@ var xlsxResult = xlsxExporter.GetFile();
 
 ### Export using DataSet/DataTable
 
-If you want to export a query result without binding it to a model, you can use a `DataSet`, it can work with Entity too :
+If you want to export a query result without binding it to a model, you can use a `DataSet`, it can work with Entity too
 ```cs
 var xlsxExporter = new XlsxDataExporter(false);
 DataSet dataSet = new DataSet();
