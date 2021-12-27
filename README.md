@@ -1,6 +1,6 @@
 # K4.DataExporter
-K4.DataExporter is a .NET 5 library made to export any IEnumerable&lt;T> to a XLSX file.
-This library is based of [Guillaume Lacasa's work](https://github.com/pericia/Pericia.DataExport), updated for .NET 5
+K4.DataExporter is a .NET Standard 2.1 library made to export any IEnumerable&lt;T> to a XLSX file.
+This library is based of [Guillaume Lacasa's work](https://github.com/pericia/Pericia.DataExport), updated for .NET Standard 2.1
 
 ## Install 
 
