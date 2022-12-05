@@ -139,6 +139,11 @@ namespace DataExporter
             sheetData.Append(row);
         }
 
+        private string ProperString(string s)
+        {
+            return Encoding.UTF8.GetString(Encoding.Default.GetBytes(Regex.Replace(s, @"[\p{C}-[\t\r\n]]+", "")));
+        }
+
         protected override void WriteData(object data, int styleIndex)
         {
             if (row == null)
@@ -156,16 +161,14 @@ namespace DataExporter
                 || data is long || data is ulong || data is float || data is double || data is decimal)
             {
                 cell.DataType = CellValues.Number;
-                var toStringMethod = data.GetType().GetMethod("ToString", new Type[] { typeof(IFormatProvider) });
-                var textValue = (string)toStringMethod.Invoke(data, new object[] { CultureInfo.InvariantCulture });
-                cell.CellValue = new CellValue(textValue);
+                cell.CellValue = new CellValue(ProperString(data.ToString()));
             }
             else if (data is DateTime)
             {
                 if ((DateTime)data != DateTime.MinValue)
                 {
                     cell.DataType = CellValues.String;
-                    cell.CellValue = new CellValue(((DateTime)data).ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture));
+                    cell.CellValue = new CellValue(ProperString(((DateTime)data).ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)));
                     cell.StyleIndex = (UInt32)1;
                 }
                 else
@@ -186,7 +189,7 @@ namespace DataExporter
                 if (data == null)
                     cell.CellValue = new CellValue(String.Empty);
                 else
-                    cell.CellValue = new CellValue(data.ToString());
+                    cell.CellValue = new CellValue(ProperString(data.ToString()));
             }
 
             row.Append(cell);
